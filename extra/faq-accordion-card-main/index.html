@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="master.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | FAQ Accordion Card</title>
+
+</head>
+<body>
+
+
+  <main>
+
+    <div class="card-container" id="root">
+      <div class="img-background-container">   <div class="box-container"><img src="images/illustration-box-desktop.svg" alt=""></div></div>
+      <div class="faqsection-container">
+        <div class="faq">
+          <h2>FAQ</h2>
+          <div v-for = "(element,index) in faqList">
+            <div>
+              {{element.question}}
+              <img class="img-avatar"v-bind:src="element.arrowDown">
+            </div>
+            <div>
+              {{element.answer}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+<script src="script.js"></script>
+</body>
+</html>

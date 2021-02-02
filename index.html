@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/master.css">
+    <title>Boolzap</title>
+  </head>
+  <body>
+
+     <!-- background   -->
+    <div class="background flex-center-row">
+
+      <!-- container centratore -->
+      <div id="root" class="container flex-start-row">
+
+        <!-- sidebar sinistra -->
+        <div class="side">
+          <div class="lateral-nav flex-center-row-beetween">
+            <div class="lateral-nav-avatar flex-center-row">
+                <img src="images/avatar_io.jpg" alt="">
+            </div>
+            <div class="lateral-nav-icon flex-start-row">
+              <div class="icon-box flex-center-column">
+                <div class="">
+                  <i class="fas fa-power-off trenta"></i>
+                </div>
+              </div>
+              <div class="icon-box flex-center-column">
+                <div class="">
+                  <i class="far fa-comment trenta"></i>
+                </div>
+              </div>
+              <div class="icon-box flex-center-column trenta">
+                <div class="">
+                  <i class="fas fa-ellipsis-v trenta"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lateral-notifiche flex-start-row">
+            <div class="bell flex-center-column">
+              <div class="flex-center-column">
+                <i class="fas fa-bell-slash trenta"></i>
+              </div>
+            </div>
+            <div class="notifiche-desktop">
+              <div class="bolder">Ricevi notifiche di nuovi messaggi</div>
+              <div> <a class="link-notifiche" href="#">Attiva notifiche desktop</a> </div>
+            </div>
+          </div>
+          <div class="lateral-chatsearching flex-center-column">
+            <div class="input-icons">
+              <i class="fas fa-search icon grey trenta"></i>
+              <input class="input-field" type="text" placeholder="Cerca o inizia una nuova chat">
+            </div>
+          </div>
+          <div class="lateral-lista-contatti">
+            <div v-for="(element,index) in contacts"  class="contatto flex-start-row" @click="">
+               <div class="contact-avatar flex-center-row">
+                 <div class="flex-center-row"> <img class="img-avatar"v-bind:src="'images/avatar' + element.avatar + '.jpg'"> </div>
+               </div>
+               <div class="contactinfo flex-center-column">
+                 <div class="message-row-one">
+                   <span class="bolder">{{element.name}}</span>
+                   <span class="grey">{{element.messages[0].date}}</span>
+                 </div>
+                 <div class="message-row-two">
+                   <span class="grey">{{element.messages[0].text}}</span>
+                 </div>
+               </div>
+            </div>
+
+          </div>
+
+        </div>
+        <!-- fine sidebar sinistra -->
+
+        <!-- inizio contenitore chat -->
+        <div class="main">
+
+          <!-- contenitore chat parte top -->
+          <div class="main-top">
+            <div class="main-nav flex-center-row-beetween">
+              <div class="main-nav-left flex-start-row">
+                <div class="main-nav-avatar flex-center-column" >
+                   <img  v-bind:src="'images/avatar' + contacts[0].avatar + '.jpg'">
+                  <!-- <img src="images/avatar_io.jpg" alt=""> -->
+                </div>
+                <div class="main-nav-message">
+                  <!-- <span class="bolder">{{element.name}}</span>
+                  <span class="grey">{{element.messages[0].date}}</span> -->
+                  <p class="bolder">Fabio</p>
+                  <p class="grey">Ultimo accesso oggi alle 17.10</p>
+                </div>
+
+              </div>
+              <div class="main-nav-right flex-start-row">
+                <div class="icon-box flex-center-column">
+                  <i class="fas fa-search icon grey trenta"></i>
+                </div>
+                <div class="icon-box flex-center-column">
+                  <i class="fas fa-paperclip trenta"></i>
+                </div>
+                <div class="icon-box flex-center-column">
+                  <i class="fas fa-ellipsis-v trenta"></i>
+                </div>
+              </div>
+            </div>
+            <div class="main-area">
+              <div class="chat-message-container">
+                <div v-for="message in contacts[0].messages" :class="{
+                  speech: true,
+                  green: (message.status === 'sent'),
+                  white: (message.status === 'received')
+                }">
+                <div class="msg-row">
+                  <div class="speech">
+                    {{message.text}}
+                  </div>
+                </div>
+              </div>
+                <!--<div class="green-row">
+                  <div class="speech green">
+                    <p>YoLo</p>
+                    <span class="grey">17.10</span>
+                  </div>
+
+                </div>
+                <div class="white-row">
+                  <div class="speech white">
+                    <p>YoLo</p>
+                    <span class="grey">17.10</span>
+                  </div>
+                </div>-->
+              </div>
+            </div>
+
+          </div>
+          <!-- fine contenitore chat parte top -->
+
+          <!-- footer chat -->
+          <div class="main-bottom flex-start-row">
+            <div class="icon-left flex-center-column">
+                <i class="far fa-smile trenta"></i>
+            </div>
+            <div class="central-input flex-center-column">
+              <input type="text" name="" placeholder="Inserisci un messaggio" value="">
+            </div>
+            <div class="icon-right flex-center-column">
+              <i class="fas fa-microphone trenta"></i>
+            </div>
+
+          </div>
+          <!-- fine footer chat -->
+
+        </div>
+        <!-- fine contenitore chat -->
+
+      </div>
+      <!-- fine container centratore  -->
+
+    </div>
+    <!-- fine background -->
+
+  <script src="js/script.js"></script>
+  </body>
+</html>
