@@ -1,6 +1,7 @@
 new Vue({
   el:'#root',
   data: {
+    activeIndex:0,
     contacts: [
 	{
 		name: 'Michele',
@@ -89,9 +90,9 @@ new Vue({
 
   },
   methods: {
-//     attivaContatto: function() {
-//       contacts[i].onclick =
-// }
+    openConversation: function(index) {
+      this.activeIndex = index;
+}
   }
 });
 Vue.config.devtools = true;

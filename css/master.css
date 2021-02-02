@@ -267,25 +267,22 @@
 }
 
 .speech{
-  width: 30%;
-  height: 100px;
+  max-width: 50%;
   border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: 10px;
+  padding: 10px;
 }
-
-/* .speech > span{
-  align-self: flex-end;
-} */
 
 .white{
   background-color:#fff;
+  float: left;
+  clear: both;
 }
 
 .green{
   background-color:#D8F9BC;
+  float: right;
+  clear: both;
 }
 /* fine contenitore chat parte top */
 
