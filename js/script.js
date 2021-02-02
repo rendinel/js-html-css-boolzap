@@ -2,6 +2,7 @@ new Vue({
   el:'#root',
   data: {
     activeIndex:0,
+    newMessage:'',
     contacts: [
 	{
 		name: 'Michele',
@@ -92,7 +93,25 @@ new Vue({
   methods: {
     openConversation: function(index) {
       this.activeIndex = index;
-}
+},
+  sendMessage: function(){
+    let activeContact = this.contacts[this.activeIndex];
+    activeContact.messages.push(			{
+    				date: '10/01/2020 15:50:00',
+    				text: this.newMessage,
+    				status: 'sent'
+    			});
+          this.newMessage = '';
+  },
+  sendMessageTwo: function(){
+    let activeContact = this.contacts[this.activeIndex];
+    activeContact.messages.push(			{
+            date: '10/01/2020 15:50:00',
+            text: this.newMessage,
+            status: 'received'
+          });
+          this.newMessage = '';
   }
+}
 });
 Vue.config.devtools = true;
