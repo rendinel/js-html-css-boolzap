@@ -4,6 +4,7 @@ new Vue({
     activeIndex:0,
     newMessage:'',
     reply:'',
+    searchContactText:'',
     contacts: [
 	{
 		name: 'Michele',
@@ -93,7 +94,7 @@ new Vue({
   methods: {
     currentDate: function() {
       const d = new Date();
-      let dateString = d.toLocateString();
+      let dateString = d.toLocaleString();
       dateString = dateString.replace(',', "")
       return dateString;
     },
@@ -119,6 +120,15 @@ new Vue({
     this.contacts[this.activeIndex].messages.push(reply);
     console.log(reply);
   },
+  searchContacts(){
+    this.contacts.forEach((element) => {
+      if(element.name.toLowerCase().includes(this.searchContactText.toLowerCase())) {
+        element.visible = true;
+      } else {
+        element.visible = false;
+      }
+    });
+  }
 }
 });
 Vue.config.devtools = true;
