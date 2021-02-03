@@ -91,19 +91,19 @@ new Vue({
 ]
   },
   methods: {
-    // currentDate: function() {
-    //   const d = new Date();
-    //   let dateString = d.toLocateString();
-    //   dateString = dateString.replace(',', "")
-    //   return dateString;
-    // },
+    currentDate: function() {
+      const d = new Date();
+      let dateString = d.toLocateString();
+      dateString = dateString.replace(',', "")
+      return dateString;
+    },
     openConversation: function(index) {
       this.activeIndex = index;
 },
   sendMessage: function(){
     let  activeContact = this.contacts[this.activeIndex];
     activeContact.messages.push(			{
-    				date: '10/01/2020 15:50:00',
+    				date: this.currentDate,
     				text: this.newMessage,
     				status: 'sent'
     			});

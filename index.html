@@ -89,13 +89,11 @@
               <div class="main-nav-left flex-start-row">
                 <div class="main-nav-avatar flex-center-column" >
                    <img  v-bind:src="'images/avatar' + contacts[activeIndex].avatar + '.jpg'">
-                  <!-- <img src="images/avatar_io.jpg" alt=""> -->
                 </div>
-                <div class="main-nav-message">
-                  <!-- <span class="bolder">{{element.name}}</span>
-                  <span class="grey">{{element.messages[0].date}}</span> -->
-                  <p class="bolder">Fabio</p>
-                  <p class="grey">Ultimo accesso oggi alle 17.10</p>
+                <div class="main-nav-message" v-for="message in contacts[activeIndex].date">
+                  <span class="grey">{{element.messages[activeIndex].date}}</span>
+                  <!-- <p class="bolder">Fabio</p>
+                  <p class="grey">Ultimo accesso oggi alle 17.10</p> -->
                 </div>
 
               </div>
