@@ -3,6 +3,7 @@ new Vue({
   data: {
     activeIndex:0,
     newMessage:'',
+    reply:'',
     contacts: [
 	{
 		name: 'Michele',
@@ -83,19 +84,24 @@ new Vue({
 			{
 				date: '10/01/2020 15:50:00',
 				text: 'Si, ma preferirei andare al cinema',
-				status: 'received'
+				status:  'received'
 			}
 		],
 	},
 ]
-
   },
   methods: {
+    // currentDate: function() {
+    //   const d = new Date();
+    //   let dateString = d.toLocateString();
+    //   dateString = dateString.replace(',', "")
+    //   return dateString;
+    // },
     openConversation: function(index) {
       this.activeIndex = index;
 },
   sendMessage: function(){
-    let activeContact = this.contacts[this.activeIndex];
+    let  activeContact = this.contacts[this.activeIndex];
     activeContact.messages.push(			{
     				date: '10/01/2020 15:50:00',
     				text: this.newMessage,
@@ -103,15 +109,14 @@ new Vue({
     			});
           this.newMessage = '';
   },
-  sendMessageTwo: function(){
-    let activeContact = this.contacts[this.activeIndex];
-    activeContact.messages.push(			{
-            date: '10/01/2020 15:50:00',
-            text: this.newMessage,
-            status: 'received'
-          });
-          this.newMessage = '';
-  }
+  autoReply: function() {
+    const reply ={
+      date: '10/01/2020 15:50:00',
+      text: 'OK',
+      status:'received'
+    }
+    this.contacts[this.activeIndex].messages.push(reply);
+  },
 }
 });
 Vue.config.devtools = true;
