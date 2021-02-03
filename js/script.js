@@ -120,7 +120,7 @@ new Vue({
     this.contacts[this.activeIndex].messages.push(reply);
     console.log(reply);
   },
-  searchContacts(){
+  searchContacts: function() {
     this.contacts.forEach((element) => {
       if(element.name.toLowerCase().includes(this.searchContactText.toLowerCase())) {
         element.visible = true;

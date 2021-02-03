@@ -60,11 +60,11 @@
           <div class="lateral-chatsearching flex-center-column">
             <div class="input-icons">
               <i class="fas fa-search icon grey trenta"></i>
-              <input class="input-field" type="text" v-model='searchContactText' @keyup='searchContacts' placeholder="Cerca o inizia una nuova chat">
+              <input class="input-field" type="text" v-model='searchContactText' @keyup='searchContacts()' placeholder="Cerca o inizia una nuova chat">
             </div>
           </div>
           <div class="lateral-lista-contatti">
-            <div v-for="(element,index) in contacts"  class="contatto flex-start-row" @click="openConversation(index)">
+            <div  v-for="(element,index) in contacts" v-if = "element.visible"  class="contatto flex-start-row" @click="openConversation(index)">
                <div class="contact-avatar flex-center-row">
                  <div class="flex-center-row"> <img class="img-avatar"v-bind:src="'images/avatar' + element.avatar + '.jpg'"> </div>
                </div>
