@@ -108,14 +108,16 @@ new Vue({
     				status: 'sent'
     			});
           this.newMessage = '';
+    setTimeout(this.autoReply,1000);
   },
   autoReply: function() {
     const reply ={
       date: '10/01/2020 15:50:00',
       text: 'OK',
       status:'received'
-    }
+    };
     this.contacts[this.activeIndex].messages.push(reply);
+    console.log(reply);
   },
 }
 });
