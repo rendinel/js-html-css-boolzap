@@ -71,7 +71,7 @@
                <div class="contactinfo flex-center-column">
                  <div class="message-row-one">
                    <span class="bolder">{{element.name}}</span>
-                   <span class="grey">{{element.messages[0].date}}</span>
+                   <span class="grey" >{{currentDate()}}</span>
                  </div>
                  <div class="message-row-two">
                    <span class="grey">{{element.messages[0].text}}</span>
@@ -121,6 +121,7 @@
                   }">
                     <div>
                       {{message.text}}
+                      <i class="fas fa-caret-down"></i>
                     </div>
                 </div>
 
