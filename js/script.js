@@ -1,4 +1,4 @@
-new Vue({
+ new Vue({
   el:'#root',
   data: {
     activeIndex:0,
